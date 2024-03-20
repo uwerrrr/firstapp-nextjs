@@ -6,7 +6,7 @@ const ProductList = async () => {
   const res = await fetch(
     "https://65fa6ab13909a9a65b1a5bee.mockapi.io/products",
     {
-      cache: "no-cache",
+      // cache: "no-cache",
       next: {
         tags: ["products"], // add tag "products" to this fetch
       },
