@@ -4,12 +4,16 @@ import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 
 export default function Home() {
-
   return (
     <main>
       <h1>hello world</h1>
-      <Link href="/users">users link</Link>
-      <ProductCard/>
+      <p>
+        <Link href="/users">users link</Link>
+      </p>
+      <p>
+        <Link href="/form">form link</Link>
+      </p>
+      <ProductCard />
     </main>
   );
 }
