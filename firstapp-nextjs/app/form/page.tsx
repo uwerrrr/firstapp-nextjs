@@ -1,8 +1,9 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import ProductList from "../components/ProductList";
 import { addEntry, addProductToDb } from "@/actions/productActions";
+import SubmitBtn from "../components/SubmitBtn";
 
 const form = async () => {
   const [state, formaAction] = useFormState(addEntry, null); // action: addEntry, initialState: null
@@ -29,9 +30,10 @@ const form = async () => {
             className="border border-gray-300 p-2 rounded-md"
             placeholder="Enter Price amount..."
           />
-          <button className="border bg-blue-500 text-white italic p-2 rounded-md">
+          {/* <button className="border bg-blue-500 text-white italic p-2 rounded-md">
             Add product
-          </button>
+          </button> */}
+          <SubmitBtn btnLabel={"Add Product"} pendingLabel={"Adding..."} />
         </form>
         <div className="flex-1 rounded-lg bg-cyan-500 p-8 text-white md:w-1/2 ">
           <pre>{JSON.stringify(state, null, 2)}</pre>
