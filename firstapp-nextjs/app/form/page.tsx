@@ -2,14 +2,17 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import ProductList from "../components/ProductList";
-import { addEntry, addProductToDb } from "@/actions/productActions";
+import { addProductToDb } from "@/actions/productActions";
 import SubmitBtn from "../components/SubmitBtn";
+import NavButton from "../components/NavButton";
 
-const form = async () => {
-  const [state, formaAction] = useFormState(addEntry, null); // action: addEntry, initialState: null
+const form = () => {
+  const [state, formaAction] = useFormState(addProductToDb, null); // action: addEntry, initialState: null
 
   return (
     <div className="">
+      <NavButton />
+      
       <h1 className="text-3xl font-bold text-center">form page</h1>
 
       {/* form section */}
@@ -26,7 +29,7 @@ const form = async () => {
           />
           <input
             name="price"
-            type="text"
+            type="number"
             className="border border-gray-300 p-2 rounded-md"
             placeholder="Enter Price amount..."
           />
@@ -36,9 +39,9 @@ const form = async () => {
           <SubmitBtn btnLabel={"Add Product"} pendingLabel={"Adding..."} />
         </form>
         <div className="flex-1 rounded-lg bg-cyan-500 p-8 text-white md:w-1/2 ">
+          <h3 className="font-bold">Submit response: </h3>
           <pre>{JSON.stringify(state, null, 2)}</pre>
         </div>
-        {/* <NavButton /> */}
       </section>
 
       <ProductList />

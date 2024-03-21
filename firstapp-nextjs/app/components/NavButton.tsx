@@ -1,5 +1,5 @@
-"use client";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const NavButton = () => {
@@ -7,13 +7,7 @@ const NavButton = () => {
 
   return (
     <Button variant="outline">
-      <button
-        onClick={() => {
-          router.back();
-        }}
-      >
-        Back
-      </button>
+      <Link href="..">Back</Link>
     </Button>
   );
 };
